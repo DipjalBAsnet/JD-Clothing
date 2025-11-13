@@ -6,27 +6,33 @@
   padding: 15px 0;
   font-size: 20px;
   align-items: center;
+  position: relative; // allows absolute positioning if needed
 
   .image-container {
-    width: 23%;
+    width: 18%;   // reduce to make room for pay button
     padding-right: 15px;
 
     img {
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
   }
-  .name,
-  .quantity,
-  .price {
-    width: 23%;
+
+  .name {
+    width: 22%;
   }
 
   .quantity {
+    width: 18%;
+
     display: flex;
+    align-items: center;
 
     .arrow {
       cursor: pointer;
+      padding: 0 8px;
+      user-select: none;
     }
 
     .value {
@@ -34,8 +40,38 @@
     }
   }
 
+  .price {
+    width: 15%;
+  }
+
   .remove-button {
+    width: 6%;
     padding-left: 12px;
     cursor: pointer;
+    text-align: center;
+  }
+
+  /* NEW: pay button block on right */
+  .pay-button-block {
+    width: 9%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;      // push it to the far right
+    cursor: pointer;
+  }
+}
+
+/* Payment form appears in its own row under the item */
+.payment-form-row {
+  width: 100%;
+  padding: 12px 0 24px;
+  display: flex;
+  justify-content: flex-end; /* align the form to the right side */
+  border-bottom: 1px solid #eee; /* optional separator */
+
+  /* The form container (PaymentForm) can limit its own width */
+  .payment-form-container {
+    width: 360px; /* card input width */
   }
 }
